@@ -3,17 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "clean": "rimraf cypress/videos cypress/screenshots",
+    "verify": "cypress verify"
   },
   "author": "Abdullah_Aladham",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "cypress": "^14.2.1",
-<<<<<<< HEAD
-=======
+    "@eslint/js": "^9.26.0",
+    "@shelex/cypress-allure-plugin": "^2.41.1",
+    "cypress": "^14.3.3",
     "cypress-cucumber-preprocessor": "^4.3.1",
->>>>>>> 341a4db (added cucumber to cypress)
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.1.0",
+    "prettier": "^3.5.3",
+    "rimraf": "^5.0.5",
     "typescript": "^5.8.2"
   }
 }
