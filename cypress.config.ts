@@ -1,5 +1,5 @@
 import { defineConfig } from "cypress";
-
+import { allureWriter } from "@shelex/cypress-allure-plugin";
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
