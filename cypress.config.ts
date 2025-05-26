@@ -8,6 +8,6 @@ export default defineConfig({
       return config;
     },
     baseUrl: 'https://automationteststore.com/', 
-    supportFile: "cypress/support/e2e.ts"
+    supportFile: "cypress/support/e2e.ts"    
   },
 });
