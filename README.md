@@ -17,6 +17,6 @@
 git clone https://github.com/abdullah-aladham/automationStore-CypressTS.git # clone the repository
 cd automationStore-CypressTS
 npm ci # install dependencies
-npm run local:run # run Cypress headless
-npm run local:open    # Open Cypress test runner GUI
+npm run cypress:run  # Run Cypress headless locally
+npm run cypress:open    # Open Cypress GUI locally
 ```
