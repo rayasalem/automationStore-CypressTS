@@ -5,7 +5,7 @@
 <p>welcome to <code>automationStore</code> Project , an automation testing project</p>
 
 <p>
-  To see the kitchen sink application, and to view the Cypress API commands demonstrated by the app, visit 
+  To see the automation test store application, and to view the Cypress API commands demonstrated by the app, visit 
   <a href="https://automationteststore.com/" target="_blank" rel="noopener noreferrer">automationteststore.com</a>.
 </p>
 <p>RUN CODE</p>
