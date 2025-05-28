@@ -1,12 +1,11 @@
 name: Cypress Tests
-on: push
 on:
   push:
     branches:
       - cypress-setup
   pull_request:
     branches:
-      - main  # or whatever the target branch is in the upstream repo
+      - main # or whatever the target branch is in the upstream repo
 jobs:
   cypress-run-ubuntu:
     name: Cypress Test with Allure
