@@ -7,7 +7,7 @@ export default defineConfig({
       allureWriter(on, config);
       return config;
     },
-    baseUrl: 'https://automationteststore.com/', 
-    supportFile: "cypress/support/e2e.ts"    
+    baseUrl: 'https://automationteststore.com/',
+    supportFile: "cypress/support/e2e.ts"
   },
 });

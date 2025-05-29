@@ -11,6 +11,6 @@ export default defineConfig([
   { files: ["**/*.{js,mjs,cjs,jsx}"], plugins: { js, prettier: pluginPrettier, cypress: pluginCypress}, extends: ["js/recommended", "prettier","plugin:prettier/recommended"], rules:{"prettier/prettier": "error", "cypress/no-unnecessary-waiting": "warn"}, },
   { files: ["**/*.{js,mjs,cjs,jsx}"], languageOptions: { globals: globals.browser } },
   {
-    ...pluginReact.configs.flat.recommended, 
+    ...pluginReact.configs.flat.recommended,
   },
 ]);
