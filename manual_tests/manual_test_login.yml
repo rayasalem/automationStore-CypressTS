@@ -18,12 +18,15 @@ Feature: User Login Functionality
     And clicks the login button
     Then an error message "Error: Incorrect login or password provided." should be displayed
 
-  Scenario: Successful password reset request
-  Given I am on the login page
-  And I click on "Forgot your password?"
-  And I enter a valid email address or username
-  When I click on the "Continue" button
-  Then I should see a success message saying "Success: Password reset link has been sent to your e-mail address."
+Feature: Bug in Forgot Login Name functionality
+
+  Scenario: User enters correct username and email but gets error message
+    Given I am on the "Forgot Login Name" page
+    When I enter a valid username "correctUsername"
+    And I enter a valid email address "user@example.com"
+    And I click the "Continue" button
+    Then I should see a success message or receive the login name
+    But I see the error message "Error: No records found matching information you provided, please check your information and try again!"
 
 Scenario: Successful password reset using valid username and email
   Given I am on the "Forgot Your Password?" page
@@ -32,5 +35,11 @@ Scenario: Successful password reset using valid username and email
   And I click the "Continue" button
   Then I should see the message "Success: Password reset link has been sent to your e-mail address."
   And I should see the password reset link displayed on the page
+
+Scenario:  Password reset attempt with invalid username or email
+  Given I am on the "Forgot Your Password?" page
+  When I enter an invalid login name or email address
+  And I click the "Continue" button
+  Then I should see the error message "Error: No records found matching information you provided, please check your information and try again!"
 
 
