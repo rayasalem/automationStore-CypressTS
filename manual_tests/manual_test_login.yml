@@ -1,0 +1,21 @@
+login_tests:
+  - title: "Successful Login"
+    description: "Login using a valid username and password, then verify redirection to the home page."
+
+  - title: "Incorrect Password"
+    description: "Attempt to login with an incorrect password and verify an appropriate error message is displayed."
+
+  - title: "Username Not Found"
+    description: "Attempt to login with a username that does not exist and verify the proper error message is shown."
+
+  - title: "Invalid Username Format"
+    description: "Attempt to login using an invalid username format and check for input validation."
+
+  - title: "Login with Empty Fields"
+    description: "Attempt to login leaving the username or password fields empty and verify appropriate validation messages."
+
+  - title: "Password Recovery (Forgot Your Password?)"
+    description: "Test the password recovery process via the recovery page and ensure it functions correctly."
+
+  - title: "Username Recovery (Forgot Your Login Name?)"
+    description: "Test the username recovery process via the designated page and verify the expected results."
