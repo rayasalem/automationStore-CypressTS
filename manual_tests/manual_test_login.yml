@@ -28,13 +28,14 @@ Feature: Forgot Login Name functionality
     And display the message "Success: Your login name has been sent to your e-mail address."
 
 
-Scenario: Successful password reset using valid username and email
-  Given I am on the "Forgot Your Password?" page
-  When I enter a valid login name
+Scenario: Successful retrieval of login name using valid last name and email
+  Given I am on the "Forgot Login Name" page
+  When I enter a valid last name
   And I enter a valid email address
   And I click the "Continue" button
-  Then I should see the message "Success: Password reset link has been sent to your e-mail address."
-  And I should see the password reset link displayed on the page
+  Then I should see the message "Success: Your login name has been sent to your e-mail address."
+  And I should receive an email containing my login name
+
 
 Scenario:  Password reset attempt with invalid username or email
   Given I am on the "Forgot Your Password?" page
