@@ -36,6 +36,11 @@ Scenario: Successful retrieval of login name using valid last name and email
   Then I should see the message "Success: Your login name has been sent to your e-mail address."
   And I should receive an email containing my login name
 
+Scenario: Failed retrieval of login name due to incorrect last name or email
+  Given I am on the "Forgot Login Name" page
+  When I enter an incorrect last name or email address
+  And I click the "Continue" button
+  Then I should see the error message "Error: No records found matching information you provided, please check your information and try again!"
 
 Scenario:  Password reset attempt with invalid username or email
   Given I am on the "Forgot Your Password?" page
