@@ -25,11 +25,12 @@ Feature: User Login Functionality
   When I click on the "Continue" button
   Then I should see a success message saying "Success: Password reset link has been sent to your e-mail address."
 
-
- Scenario: Successful password reset using username and email
+Scenario: Successful password reset using valid username and email
   Given I am on the "Forgot Your Password?" page
-  And I enter a valid "Login Name"
-  And I enter a valid "E-Mail Address"
-  When I click the "Continue" button
+  When I enter a valid login name
+  And I enter a valid email address
+  And I click the "Continue" button
   Then I should see the message "Success: Password reset link has been sent to your e-mail address."
+  And I should see the password reset link displayed on the page
+
 
