@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "cypress:run": "cypress run",
     "cypress:open": "cypress open",
     "clean": "rimraf cypress/videos cypress/screenshots",
-    "verify": "cypress verify"
+    "lint": "eslint \"cypress/**/*.ts\" --fix",
+    "lint:check": "eslint \"cypress/**/*.ts\""
   },
   "author": "Abdullah_Aladham",
   "license": "ISC",
@@ -18,6 +19,7 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-cypress": "^4.3.0",
     "eslint-plugin-prettier": "^5.4.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.1.0",
