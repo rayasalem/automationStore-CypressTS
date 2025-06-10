@@ -43,7 +43,7 @@ Feature: Cart
     And the cart should become empty after the checkout is completed
   
 
-    Scenario: Ensure that the Cart gets empty after checkout when the user is not logged in
+  Scenario: Ensure that the Cart gets empty after checkout when the user is not logged in
     Given the user is on the Cart page
     And the cart contains items
     When the user clicks on the Checkout button
@@ -51,4 +51,17 @@ Feature: Cart
     And the user chooses to register, log in, or proceed as a guest
     And the system navigates to the Checkout Confirmation page
     And the cart should become empty after the checkout is completed
-    
+
+
+  Scenario: Validate "Continue Shopping" button when the Cart contains items
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user clicks on the "Continue Shopping" button
+    Then the system should navigate to the Home page or the last selected product page
+
+
+  Scenario: Validate "Continue" button when the is empty
+    Given the user is on the Cart page
+    And the cart is empty
+    When the user clicks on the "Continue" button
+    Then the system should navigate to the Home page
