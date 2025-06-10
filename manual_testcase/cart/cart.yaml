@@ -72,3 +72,20 @@ Feature: Cart
     And the cart contains items
     When the user clicks on a product name 
     Then the system should navigate to the corresponding Product details page
+
+
+  Scenario: Verify that users can select a country and its respective state
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user selects a country from "Country and State" dropdown
+    Then the "State" dropdown should update based on the selected country 
+
+  
+  Scenario: Verify that Estimate button should calculate and display shipping and taxes
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user selects a country and state from the "Country and State" dropdown
+    And enters a valid ZIP or postal code
+    And clicks the "Estimate" button
+    Then the flat shipping rate should be displayed
+    And the total amount should be updated accordingly
