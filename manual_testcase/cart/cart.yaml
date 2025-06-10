@@ -1,0 +1,54 @@
+Feature: Cart
+
+  Scenario: Apply Coupon when the coupon is valid
+    Given the user is on the Cart page
+    And the Cart has items
+    When the user enters a valid coupon in the Copoun field
+    And clicks the "Apply Coupon" button 
+    Then the sucess message "Success: Your coupon discount has been applied!" should appear
+    And the discount field should appear above the "Total" field 
+    And the discount should be subtracted from the Total value
+
+
+  Scenario: Apply Coupon when the coupon is invalid
+    Given the user is on the Cart page
+    And the Cart has items
+    When the user enters an invalid coupon in the Coupon field
+    And clicks the "Apply Coupon" button 
+    Then the error message "Error: Coupon is either invalid, expired or reached it's usage limit!" should appear
+
+  
+  Scenario: Ensure that the cart keeps its content after the user refreshes the page
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user refreshes the Cart page
+    Then the Cart items should remain in the Cart page
+
+
+  Scenario: Ensure that the cart keeps its content after the user logs out and then logs in again
+    Given the user is logged in
+    And the user is on the Cart page
+    And the cart contains items
+    When the user logs out
+    And the user logs in again
+    Then the Cart items should remain in the Cart page
+
+
+  Scenario: Ensure that the Cart gets empty after checkout when the user is logged in
+    Given the user is logged in
+    And the user is on the Cart page
+    And the cart contains items
+    When the user clicks on the Checkout button
+    Then the system should navigate to the Checkout Confirmation page
+    And the cart should become empty after the checkout is completed
+  
+
+    Scenario: Ensure that the Cart gets empty after checkout when the user is not logged in
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user clicks on the Checkout button
+    Then the system should navigate to the Account Login page
+    And the user chooses to register, log in, or proceed as a guest
+    And the system navigates to the Checkout Confirmation page
+    And the cart should become empty after the checkout is completed
+    
