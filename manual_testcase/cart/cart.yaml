@@ -65,3 +65,10 @@ Feature: Cart
     And the cart is empty
     When the user clicks on the "Continue" button
     Then the system should navigate to the Home page
+  
+
+  Scenario: Verify that product names in the Cart page are clickable and redirect to their respective Product Details pages
+    Given the user is on the Cart page
+    And the cart contains items
+    When the user clicks on a product name 
+    Then the system should navigate to the corresponding Product details page
