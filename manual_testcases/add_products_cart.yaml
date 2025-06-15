@@ -1,0 +1,38 @@
+feacture: add products to the cart
+scenario: add single product to the cart
+  given: user is on the home page
+    and: products card is visible
+    and: "add to cart" button is visible
+  when: user clicks on add to cart button
+  then: product should be added to the cart
+    and: the box should turn green
+    and: cart icon should be updated with the number of items in the cart
+    and: the total price in the cart should be updated
+
+scenario: add multiple products to the cart
+  given: user is on the home page 
+    and: products card is visible
+    and: "add to cart" button is visible
+  when: user clicks on add to cart button for multiple products
+  then: all products should be added to the cart
+    and: the box should turn green for each product
+    and: cart icon should be updated with the total number of items in the cart
+    and: the total price in the cart should be updated accordingly
+
+scenario: add product to the cart from product details page
+  given: user is on the product details page
+    and: "add to cart" button is visible
+  when: user clicks on add to cart button
+  then: product should be added to the cart
+    and: cart icon should be updated with the number of items in the cart
+    and: the total price in the cart should be updated
+
+scenario: add product multiple times to the cart
+  given: user is on the home page
+    and: products card is visible
+    and: "add to cart" button is visible
+  when: user clicks on add to cart button multiple times
+  then: product should be added to the cart multiple times
+    and: the quantity field of the product in the cart page should be updated
+    and: cart icon should be updated with the total number of items in the cart
+    and: the total price in the cart should be updated accordingly    
