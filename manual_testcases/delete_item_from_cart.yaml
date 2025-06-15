@@ -19,4 +19,3 @@
         - then: product is removed from the cart
         - and: the cart is empty after all products are deleted
         - and: a message "Your cart is empty" is displayed
-        
