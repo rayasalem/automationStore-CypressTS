@@ -1,51 +1,55 @@
-Feature: User Login Functionality
+---
+feature: User Authentication Functionality
 
-  Scenario: Successful login
-    Given the user is on the login page
-    When the user enters a valid username and valid password
-    And clicks the login button
-    Then the user should be redirected to the homepage
+scenarios:
+  - title: Successful login
+    steps:
+      - given: "the user is on the login page"
+      - when: "the user enters a valid username and valid password"
+      - and: "clicks the login button"
+      - then: "the user should be redirected to the homepage"
 
-  Scenario: Invalid login due to incorrect username or password
-    Given the user is on the login page
-    When the user enters an incorrect username or password
-    And clicks the login button
-    Then an error message "Error: Incorrect login or password provided." should be displayed
+  - title: Invalid login due to incorrect username or password
+    steps:
+      - given: "the user is on the login page"
+      - when: "the user enters an incorrect username or password"
+      - and: "clicks the login button"
+      - then: 'an error message "Error: Incorrect login or password provided." should be displayed'
 
-  Scenario: Login with empty fields
-    Given the user is on the login page
-    When the user leaves the username and password fields empty
-    And clicks the login button
-    Then an error message "Error: Incorrect login or password provided." should be displayed
+  - title: Login with empty fields
+    steps:
+      - given: "the user is on the login page"
+      - when: "the user leaves the username and password fields empty"
+      - and: "clicks the login button"
+      - then: 'an error message "Error: Incorrect login or password provided." should be displayed'
 
-Feature: Forgot Login Name functionality
+  - title: Successful retrieval of login name using valid email
+    steps:
+      - given: 'the user is on the "Forgot Login Name" page'
+      - when: "the user enters a valid email address"
+      - and: 'the user clicks the "Continue" button'
+      - then: "the system should send the login name to the user's email"
+      - and: 'display the message "Success: Your login name has been sent to your e-mail address."'
 
-  Scenario: Successful retrieval of login name using valid email
-    Given the user is on the "Forgot Login Name" page
-    When the user enters a valid email address 
-    And the user clicks the "Continue" button
-    Then the system should send the login name to the user's email
-    And display the message "Success: Your login name has been sent to your e-mail address."
+  - title: Successful retrieval of login name using valid last name and email
+    steps:
+      - given: 'I am on the "Forgot Login Name" page'
+      - when: "I enter a valid last name"
+      - and: "I enter a valid email address"
+      - and: 'I click the "Continue" button'
+      - then: 'I should see the message "Success: Your login name has been sent to your e-mail address."'
+      - and: "I should receive an email containing my login name"
 
+  - title: Failed retrieval of login name due to incorrect last name or email
+    steps:
+      - given: 'I am on the "Forgot Login Name" page'
+      - when: "I enter an incorrect last name or email address"
+      - and: 'I click the "Continue" button'
+      - then: 'I should see the error message "Error: No records found matching information you provided, please check your information and try again!"'
 
-Scenario: Successful retrieval of login name using valid last name and email
-  Given I am on the "Forgot Login Name" page
-  When I enter a valid last name
-  And I enter a valid email address
-  And I click the "Continue" button
-  Then I should see the message "Success: Your login name has been sent to your e-mail address."
-  And I should receive an email containing my login name
-
-Scenario: Failed retrieval of login name due to incorrect last name or email
-  Given I am on the "Forgot Login Name" page
-  When I enter an incorrect last name or email address
-  And I click the "Continue" button
-  Then I should see the error message "Error: No records found matching information you provided, please check your information and try again!"
-
-Scenario:  Password reset attempt with invalid username or email
-  Given I am on the "Forgot Your Password?" page
-  When I enter an invalid login name or email address
-  And I click the "Continue" button
-  Then I should see the error message "Error: No records found matching information you provided, please check your information and try again!"
-
-
+  - title: Password reset attempt with invalid username or email
+    steps:
+      - given: 'I am on the "Forgot Your Password?" page'
+      - when: "I enter an invalid login name or email address"
+      - and: 'I click the "Continue" button'
+      - then: 'I should see the error message "Error: No records found matching information you provided, please check your information and try again!"'
