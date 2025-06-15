@@ -1,3 +1,4 @@
+---
 - feature: check price of the product in the cart
   scenarios:
     - title: user checks the price of a product in the cart
@@ -10,3 +11,4 @@
         - then: price of the products is displayed correctly
         - and: subtotal price of the products is calculated correctly based on quantity
         - and: total price of the cart is calculated correctly based on all products in the cart
+        

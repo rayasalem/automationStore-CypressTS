@@ -1,3 +1,4 @@
+---
 - feature: update item quantity in the shopping cart
   scenarios:
     - title: user increases the quantity of a product in the cart
@@ -33,7 +34,7 @@
         - and: quantity field is set to 1 or more
         - when: user sets the quantity of the product to 0 or negative number
         - and: user clicks on update button or press enter
-        - then: the system should show a validation message "Please enter a valid quantity, integer number greater than 0."
+        - then: the system should show a validation message "Please enter a valid quantity."
         - and: quantity of the product in the cart is not updated
         - and: sub total price of the product is not updated
 
@@ -46,7 +47,7 @@
         - and: quantity field is set to 1 or more
         - when: user enters characters in the quantity field
         - and: user clicks on update button or press enter
-        - then: the system should show a validation message "Please enter a valid quantity, integer number greater than 0."
+        - then: the system should show a validation message "Please enter a valid quantity."
         - and: quantity of the product in the cart is not updated
         - and: sub total price of the product is not updated
 
@@ -58,5 +59,5 @@
         - and: product has a minimum quantity set to 2
         - when: user enters a quantity of the product less than the minimum (1)
         - and: user clicks on update button or press enter
-        - then: a message should appear "Allowed product's quantity is below minimum required. Quantity was set to minimum amount."
+        - then: a message should appear "Allowed product's quantity is below minimum required."
         - and: quantity of the product in the cart is set to minimum amount

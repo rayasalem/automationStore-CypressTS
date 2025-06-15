@@ -1,3 +1,4 @@
+---
 - feature: delete item from the shopping cart
   scenarios:
     - title: user deletes a product from the cart
@@ -18,3 +19,4 @@
         - then: product is removed from the cart
         - and: the cart is empty after all products are deleted
         - and: a message "Your cart is empty" is displayed
+        
