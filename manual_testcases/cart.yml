@@ -20,7 +20,7 @@ scenarios:
       - and: 'clicks the "Apply Coupon" button'
       - then: >
           'the error message "Error: Coupon is either invalid, expired or reached its usage limit!" should appear'
-  
+
   - title: Ensure that the cart keeps its content after the user refreshes the page
     steps:
       - given: "the user is on the Cart page"
