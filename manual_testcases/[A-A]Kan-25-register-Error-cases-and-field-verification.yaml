@@ -4,7 +4,7 @@ Feature: User Registers in the website
 Scenarios:
 title: Register User with Registered email
 when:  user registers with registered email
-and: the email is stored in the database
+and:  the email is stored in the database
 then: an email validation error appears 
           
 
@@ -31,10 +31,4 @@ title: Checking for validation messages
 when: user tries to register with invalid data format with characters less than minimum range
 and: user gives data with less than allowed minimum for some inputs
 then: range validation error message appears 
-          
-          
-          
-
-
-
-
+---
