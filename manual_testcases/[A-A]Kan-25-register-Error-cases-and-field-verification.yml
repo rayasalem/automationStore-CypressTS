@@ -27,6 +27,6 @@ Scenarios:
 
     - title: Checking for validation messages
       steps:
-         - when: user tries to register with invalid data format with characters less than minimum range
-         - and: user gives data with less than allowed minimum for some inputs
-         - then: range validation error message appears
+          - when: user tries to register with invalid data format with characters less than minimum range
+          - and: user gives data with less than allowed minimum for some inputs
+          - then: range validation error message appears
