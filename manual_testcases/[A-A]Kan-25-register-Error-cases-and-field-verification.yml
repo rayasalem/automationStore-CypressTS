@@ -1,15 +1,14 @@
 ---
-Feature: User Registers in the website
+Feature: Register
 
 Scenarios:
-  
     -title: Register User with Registered email
     steps:
       -when: user registers with registered email
       -and: the email is stored in the database
       -then: an email validation error appears
 
-    -title: Register User with Non-Matchimg Password 
+    -title: Register User with Non-Matchimg Password
     steps:
       -when: user registers
       -and: submits passwords that are non matching password fields
