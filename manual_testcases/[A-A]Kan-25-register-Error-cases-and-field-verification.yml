@@ -2,33 +2,31 @@
 Feature: Register
 
 Scenarios:
-    -title: Register User with Registered email
-    steps:
-      -when: user registers with registered email
-      -and: the email is stored in the database
-      -then: an email validation error appears
+    - title: Register User with Registered email
+      steps:
+       - when: user registers with registered email
+       - and: the email is stored in the database
+       - then: an email validation error appears
 
-    -title: Register User with Non-Matchimg Password
-    steps:
-      -when: user registers
-      -and: submits passwords that are non matching password fields
-      -then: password matching validation error messages appear
+    - title: Register User with Non-Matchimg Password
+      steps:
+       - when: user registers
+       - and: submits passwords that are non matching password fields
+       - then: password matching validation error messages appear
   
-    -title: Register User with blank input fields 
-    steps:
-      -when: user tries to register with blank input fields
-      -then: all required fields validation errors messages appear
+    - title: Register User with blank input fields 
+      steps:
+       - when: user tries to register with blank input fields
+       - then: all required fields validation errors messages appear
 
-  
-    -title: Register User with invalid Email format 
-    steps:
-      -when: user tries to register with invalid email format
-      -and: user gives invalid email format 
-      -then: email validation error message appears
+    - title: Register User with invalid Email format 
+      steps:
+       - when: user tries to register with invalid email format
+       - and: user gives invalid email format 
+       - then: email validation error message appears
 
-  
-    -title: Checking for validation messages
-    steps:
-      -when: user tries to register with invalid data format with characters less than minimum range
-      -and: user gives data with less than allowed minimum for some inputs
-      -then: range validation error message appears
+    - title: Checking for validation messages
+      steps:
+       - when: user tries to register with invalid data format with characters less than minimum range
+       - and: user gives data with less than allowed minimum for some inputs
+       - then: range validation error message appears
