@@ -23,7 +23,7 @@ Scenarios:
     - title: non registerd user Registers with blank input fields
       steps:
           - when: non registerd user registers clicks on "Login or register"
-          - and: clicks on Continue	button
+          - and: clicks on Continue button
           - and: user tries to register with blank input fields
           - and: clicks on Continue button
           - then: all required fields validation errors messages appear
