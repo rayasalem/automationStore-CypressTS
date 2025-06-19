@@ -33,7 +33,7 @@ Scenarios:
     - title: non registerd user Register User with invalid Email format
       steps:
           - when: non registerd user registers clicks on "Login or register"
-          - and: clicks on Continue	button
+          - and: clicks on Continue button
           - and: fills all input data and invalid email data in email input
           - and: user clicks on Continue button
           - then: email validation error message appears which is "Error:E-Mail Address is already registered!"
@@ -42,7 +42,7 @@ Scenarios:
     - title: Checking for range validation message for Address1
       steps:
           - when: non registerd user registers clicks on "Login or register"
-          - and: clicks on Continue	button
+          - and: clicks on Continue button
           - and: user fills the form input all are valid but the address field which is less than minimum range
           - and: user clicks on Continue button
           - then: range validation error message appears for Address1 which is the following
