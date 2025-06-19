@@ -11,10 +11,10 @@ Scenarios:
           - then: an email validation error appears under "Create account" title in alert box which contains
                   "Error:E-Mail Address is already registered!"
 
-    - title: Register User with Non-Matchimg Password
+    - title: non registered user tries to Register with Non-Matchimg Password
       steps:
-          - when: non registerd user registers clicks on "Login or register"
-          - and: user clicks on Continue button
+          - when: non registered user clicks on "Login or register"
+          - and: non registerd user clicks on Continue button
           - and: submits all input with valid data and Non-Matchimg passwords for Password fields
           - and: user submits the data by clicking on Continue button
           - then: password matching validation error messages appear which is
@@ -22,7 +22,7 @@ Scenarios:
 
     - title: non registerd user Registers with blank input fields
       steps:
-          - when: non registerd user registers clicks on "Login or register"
+          - when: non registerd user clicks on "Login or register"
           - and: clicks on Continue button
           - and: user tries to register with blank input fields
           - and: clicks on Continue button
@@ -32,7 +32,7 @@ Scenarios:
 
     - title: non registerd user Register User with invalid Email format
       steps:
-          - when: non registerd user registers clicks on "Login or register"
+          - when: non registerd user clicks on "Login or register"
           - and: clicks on Continue button
           - and: fills all input data and invalid email data in email input
           - and: user clicks on Continue button
@@ -41,7 +41,7 @@ Scenarios:
 
     - title: Checking for range validation message for Address1
       steps:
-          - when: non registerd user registers clicks on "Login or register"
+          - when: non registerd user clicks on "Login or register"
           - and: clicks on Continue button
           - and: user fills the form input all are valid but the address field which is less than minimum range
           - and: user clicks on Continue button
