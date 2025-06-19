@@ -17,8 +17,8 @@ Scenarios:
           - and: clicks on Continue	button
           - and: submits all input with valid data and Non-Matchimg passwords for Password fields
           - and: user submits the data by clicking on Continue button
-          - then: password matching validation error messages appear which is 
-                  "Password confirmation does not match password!" under Password Confirm input field 
+          - then: password matching validation error messages appear which is
+                  "Password confirmation does not match password!" under Password Confirm input field
 
     - title: Register User with blank input fields
       steps:
@@ -35,7 +35,7 @@ Scenarios:
           - and: clicks on Continue	button
           - and: fills all input data and invalid email data in email input
           - and: user clicks on Continue button
-          - then: email validation error message appears which is "Error:E-Mail Address is already registered!" 
+          - then: email validation error message appears which is "Error:E-Mail Address is already registered!"
                   in alert div under create account title
 
     - title: Checking for range validation message for Address1
