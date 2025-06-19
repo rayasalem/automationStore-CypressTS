@@ -9,18 +9,18 @@ Scenarios:
           - and: fills input with data and the previously registered email
           - and: user submits the data by clicking on Continue button
           - then: an email validation error appears under "Create account" title in alert box which contains
-                  "Error:E-Mail Address is already registered!" 
+                  "Error:E-Mail Address is already registered!"
 
     - title: Register User with Non-Matchimg Password
       steps:
           - when: non registerd user registers clicks on "Login or register"
-          - and: clicks on Continue	button
+          - and: user clicks on Continue button
           - and: submits all input with valid data and Non-Matchimg passwords for Password fields
           - and: user submits the data by clicking on Continue button
           - then: password matching validation error messages appear which is
                   "Password confirmation does not match password!" under Password Confirm input field
 
-    - title: Register User with blank input fields
+    - title: non registerd user Registers with blank input fields
       steps:
           - when: non registerd user registers clicks on "Login or register"
           - and: clicks on Continue	button
@@ -30,7 +30,7 @@ Scenarios:
                   and "Error:You must agree to the Privacy Policy!"
                   in the in alert div under create account title
 
-    - title: Register User with invalid Email format
+    - title: non registerd user Register User with invalid Email format
       steps:
           - when: non registerd user registers clicks on "Login or register"
           - and: clicks on Continue	button
