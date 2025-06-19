@@ -5,7 +5,7 @@ Scenarios:
     - title: Register User with Registered email
       steps:
           - when: non registered user clicks on "Login or register"
-          - and: clicks on Continue	button
+          - and: user clicks on Continue button
           - and: fills input with data and the previously registered email
           - and: user submits the data by clicking on Continue button
           - then: an email validation error appears under "Create account" title in alert box which contains
@@ -26,7 +26,8 @@ Scenarios:
           - and: clicks on Continue	button
           - and: user tries to register with blank input fields
           - and: clicks on Continue button
-          - then: all required fields validation errors messages appear and "Error:You must agree to the Privacy Policy!" 
+          - then: all required fields validation errors messages appear
+                  and "Error:You must agree to the Privacy Policy!"
                   in the in alert div under create account title
 
     - title: Register User with invalid Email format
