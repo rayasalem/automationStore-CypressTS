@@ -1,0 +1,35 @@
+name: Validate Manual Testcases
+
+on:
+  push:
+    paths:
+      - 'manual_testcases/**/*.yml'
+      - 'manual_testcases/**/*.yaml'
+  pull_request:
+    paths:
+      - 'manual_testcases/**/*.yml'
+      - 'manual_testcases/**/*.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install tools
+        run: |
+          pip install yamllint codespell
+
+      - name: Validate YAML syntax
+        run: |
+          yamllint manual_testcases
+
+      - name: Spell check
+        run: |
+          codespell --skip=".git,*.png,*.jpg" manual_testcases
