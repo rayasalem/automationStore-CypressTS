@@ -4,12 +4,14 @@ scenarios:
   - title: add single product to the cart
     steps:
       - given: user is on the home page
-      - and: products card is visible
+      - and: products card is visible on the home page
+      - and: product is available for purchase
       - and: add to cart button is visible
-      - when: user clicks on add to cart button
+      - when: user clicks on add to cart button 
       - then: product should be added to the cart
-      - and: the box should turn green
-      - and: cart icon should be updated with the number of items in the cart
+      - and: the box below the product in the homepage should turn green 
+      - and: a cart icon should be visible at the left of the price under the product
+      - and: Cart icon on the top of homepage should update with item count
       - and: the total price in the cart should be updated
 
   - title: add multiple products to the cart
