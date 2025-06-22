@@ -1,0 +1,63 @@
+---
+- feature: update item quantity in the shopping cart
+  scenarios:
+    - title: user increases the quantity of a product in the cart
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: quantity field is visible
+        - and: quantity field is set to 1 or more
+        - when: user increases the quantity of the product for more than 1
+        - and: user clicks on update button or press enter
+        - then: quantity of the product in the cart is updated
+        - and: subtotal price of the product is updated
+        - and: total price of the cart is updated
+
+    - title: user decreases the quantity of a product in the cart
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: quantity field is visible
+        - and: quantity field is set to more than 2
+        - when: user decreases the quantity of the product
+        - and: user clicks on update button or press enter
+        - then: quantity of the product in the cart is updated
+        - and: subtotal price of the product is updated
+        - and: total price of the cart is updated
+
+    - title: user sets the quantity of a product to 0 or negative number in the cart
+      description: failed test case, product is removed from the cart when quantity is set to 0 or negative number
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: quantity field is visible
+        - and: quantity field is set to 1 or more
+        - when: user sets the quantity of the product to 0 or negative number
+        - and: user clicks on update button or press enter
+        - then: the system should show a validation message "Please enter a valid quantity."
+        - and: quantity of the product in the cart is not updated
+        - and: sub total price of the product is not updated
+
+    - title: user enters characters in the quantity field
+      description: this test case failed, product is removed when characters are entered in the quantity field.
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: quantity field is visible
+        - and: quantity field is set to 1 or more
+        - when: user enters characters in the quantity field
+        - and: user clicks on update button or press enter
+        - then: the system should show a validation message "Please enter a valid quantity."
+        - and: quantity of the product in the cart is not updated
+        - and: sub total price of the product is not updated
+
+    - title: user enters a quantity of a some product less than the minimum
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: quantity field is visible
+        - and: product has a minimum quantity set to 2
+        - when: user enters a quantity of the product less than the minimum (1)
+        - and: user clicks on update button or press enter
+        - then: a message should appear "Allowed product's quantity is below minimum required."
+        - and: quantity of the product in the cart is set to minimum amount
