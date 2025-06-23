@@ -89,5 +89,3 @@ scenarios:
       - then: >
           the error message "Error: No records found matching information you provided,
           please check your information and try again!" should be displayed
-
-         
