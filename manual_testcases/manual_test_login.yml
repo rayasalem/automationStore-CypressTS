@@ -10,11 +10,21 @@ scenarios:
       - and: "clicks the login button"
       - then: "the user should be redirected to the homepage"
 
-  - title: Invalid login due to incorrect username or password
+  - title: Login with incorrect username
     steps:
       - given: "the user is on the Home Page"
       - and: "clicks the Login button"
-      - when: "the user enters an incorrect username or password"
+      - when: "the user enters an incorrect username"
+      - and: "enters a valid password"
+      - and: "clicks the login button"
+      - then: 'an error message "Error: Incorrect login or password provided." should be displayed'
+
+  - title: Login with incorrect password
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - when: "the user enters a valid username"
+      - and: "enters an incorrect password"
       - and: "clicks the login button"
       - then: 'an error message "Error: Incorrect login or password provided." should be displayed'
 
