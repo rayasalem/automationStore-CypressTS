@@ -33,3 +33,7 @@ jobs:
       - name: Spell check
         run: |
           codespell --skip=".git,*.png,*.jpg" manual_testcases
+      - name: Fix trailing spaces and ensure newline at EOF
+        run: |
+               sed -i 's/[[:space:]]\+$//' manual_testcases/manual_test_login.yml
+                  echo "" >> manual_testcases/manual_test_login.yml
