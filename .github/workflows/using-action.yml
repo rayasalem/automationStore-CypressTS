@@ -21,7 +21,7 @@ jobs:
         run: wget https://github.com/allure-framework/allure2/releases/download/2.34.0/allure_2.34.0-1_all.deb && sudo dpkg -i allure_2.34.0-1_all.deb
 
       - name: Run Cypress with Allure
-        uses: cypress-io/github-actions@v3
+        uses: cypress-io/github-action@v3
         with:
           build: npx cypress run --env allure=true
 
@@ -69,7 +69,7 @@ jobs:
         run: choco install allure -y
 
       - name: Run Cypress with Allure
-        uses: cypress-io/github-actions@v3
+        uses: cypress-io/github-action@v3
         with:
           build: npx cypress run --env allure=true
 
