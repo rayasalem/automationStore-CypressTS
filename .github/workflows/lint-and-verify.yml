@@ -1,0 +1,29 @@
+name: Lint Check
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - master
+jobs:
+  lint-check-ubuntu:
+    name: Run ESLint and Yamllint on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+
+      - name: Yamllint
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_file_or_dir: "."
+          yamllint_strict: true
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
