@@ -9,7 +9,7 @@ on:
 jobs:
   run-e2e-tests-ubuntu:
     name: Cypress Test with Allure
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
         run: wget https://github.com/allure-framework/allure2/releases/download/2.34.0/allure_2.34.0-1_all.deb && sudo dpkg -i allure_2.34.0-1_all.deb
 
       - name: Run Cypress with Allure
-        uses: cypress-io/github-actions@v6
+        uses: cypress-io/github-actions@v5
         with:
           build: npx cypress run --env allure=true
 
@@ -31,24 +31,21 @@ jobs:
           results-directory: allure-results
           report-directory: allure-report
 
-      - name: Generate Allure Report
-        run: allure generate allure-results --clean -o allure-report
-
       - name: Upload Allure Report to Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: allure-report-for-download
           path: allure-report
 
       - name: Upload Execution Video to Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: video-report
           path: cypress/videos/*.mp4
 
       - name: Upload Failed Screenshots
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: failed-screenshots
           path: cypress/screenshots/
@@ -72,28 +69,31 @@ jobs:
         run: choco install allure -y
 
       - name: Run Cypress with Allure
-        uses: cypress-io/github-actions@v6
+        uses: cypress-io/github-actions@v5
         with:
           build: npx cypress run --env allure=true
 
       - name: Generate Allure Report
-        run: allure generate allure-results --clean -o allure-report
+        uses: simple-elf/allure-report-action@v1.7
+        with:
+          results-directory: allure-results
+          report-directory: allure-report
 
       - name: Upload Allure Report to Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: allure-report-for-download
           path: allure-report
 
       - name: Upload Execution Video to Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: video-report
           path: cypress/videos/*.mp4
 
       - name: Upload Failed Screenshots
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: failed-screenshots
           path: cypress/screenshots/
