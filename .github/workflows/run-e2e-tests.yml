@@ -23,7 +23,7 @@ jobs:
       - name: Run Cypress with Allure
         uses: cypress-io/github-action@v3
         with:
-          build: npx cypress run --env allure=true
+          build: npx cypress run -s cypress/e2e/specs --env allure=true
 
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@v1.7
