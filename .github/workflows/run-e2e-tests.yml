@@ -1,0 +1,51 @@
+name: run-e2e-tests
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - master
+jobs:
+  run-e2e-tests-ubuntu:
+    name: Cypress Test with Allure
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Allure
+        run: sudo apt install allure -y
+
+      - name: Run Cypress with Allure
+        uses: cypress-io/github-action@v3
+        with:
+          build: npx cypress run -s cypress/e2e/specs --env allure=true
+
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@v1.7
+        with:
+          results-directory: allure-results
+          report-directory: allure-report
+
+      - name: Upload Allure Report to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-for-download
+          path: allure-report
+
+      - name: Upload Execution Video to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-report
+          path: cypress/videos/*.mp4
+
+      - name: Upload Failed Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-screenshots
+          path: cypress/screenshots/
