@@ -18,7 +18,7 @@ jobs:
         run: npm ci
 
       - name: Install Allure
-        run: apt install allure -y
+        run: sudo apt install allure -y
 
       - name: Run Cypress with Allure
         uses: cypress-io/github-action@v3
