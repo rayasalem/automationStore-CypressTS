@@ -1,0 +1,46 @@
+---
+feature: add products to the cart
+scenarios:
+  - title: add single product to the cart
+    steps:
+      - given: user is on the home page
+      - and: products card is visible on the home page
+      - and: product is available for purchase
+      - and: add to cart button is visible
+      - when: user clicks on add to cart button
+      - then: product should be added to the cart
+      - and: the box below the product in the homepage should turn green
+      - and: a cart icon should be visible at the left of the price under the product
+      - and: Cart icon on the top of homepage should update with item count
+      - and: the total price in the cart should be updated
+
+  - title: add multiple products to the cart
+    steps:
+      - given: user is on the home page
+      - and: products card is visible
+      - and: add to cart button is visible
+      - when: user clicks on add to cart button for multiple products
+      - then: all products should be added to the cart
+      - and: the box should turn green for each product
+      - and: cart icon should be updated with the total number of items in the cart
+      - and: the total price in the cart should be updated accordingly
+
+  - title: add product to the cart from product details page
+    steps:
+      - given: user is on the product details page
+      - and: add to cart button is visible
+      - when: user clicks on add to cart button
+      - then: product should be added to the cart
+      - and: cart icon should be updated with the number of items in the cart
+      - and: the total price in the cart should be updated
+
+  - title: add product multiple times to the cart
+    steps:
+      - given: user is on the home page
+      - and: products card is visible
+      - and: add to cart button is visible
+      - when: user clicks on add to cart button multiple times
+      - then: product should be added to the cart multiple times
+      - and: the quantity field of the product in the cart page should be updated
+      - and: cart icon should be updated with the total number of items in the cart
+      - and: the total price in the cart should be updated accordingly
