@@ -1,0 +1,49 @@
+---
+Feature: Register User
+
+Scenarios:
+    - title: Register User with Registered email
+      steps:
+          - when: non registered user clicks on "Login or register"
+          - and: user clicks on Continue button
+          - and: fills input with data and the previously registered email
+          - and: user submits the data by clicking on Continue button
+          - then: an email validation error appears under "Create account" title in alert box which contains
+                  "Error:E-Mail Address is already registered!"
+
+    - title: non registered user tries to Register with Non-Matchimg Password
+      steps:
+          - when: non registered user clicks on "Login or register"
+          - and: non registered user clicks on Continue button
+          - and: submits all input with valid data and Non-Matchimg passwords for Password fields
+          - and: user submits the data by clicking on Continue button
+          - then: password matching validation error messages appear which is
+                  "Password confirmation does not match password!" under Password Confirm input field
+
+    - title: non registered user Registers with blank input fields
+      steps:
+          - when: non registered user clicks on "Login or register"
+          - and: clicks on Continue button
+          - and: user tries to register with blank input fields
+          - and: clicks on Continue button
+          - then: all required fields validation errors messages appear
+                  and "Error:You must agree to the Privacy Policy!"
+                  in the in alert div under create account title
+
+    - title: non registered user Register User with invalid Email format
+      steps:
+          - when: non registered user clicks on "Login or register"
+          - and: clicks on Continue button
+          - and: fills all input data and invalid email data in email input
+          - and: user clicks on Continue button
+          - then: email validation error message appears which is "Error:E-Mail Address is already registered!"
+                  in alert div under create account title
+
+    - title: Checking for range validation message for Address1
+      steps:
+          - when: non registered user clicks on "Login or register"
+          - and: clicks on Continue button
+          - and: user fills the form input all are valid but the address field which is less than minimum range
+          - and: user clicks on Continue button
+          - then: range validation error message appears for Address1 which is the following
+                 "Address 1 must be between 3 and 128 characters!" and it is located under the address1 input field
