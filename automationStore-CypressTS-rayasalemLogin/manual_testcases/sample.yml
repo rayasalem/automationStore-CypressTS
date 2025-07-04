@@ -1,0 +1,23 @@
+---
+feature: Cart
+
+scenarios:
+  - title: Apply Coupon when the coupon is valid
+    steps:
+      - given: "the user is on the Cart page"
+      - and: "the Cart has items"
+      - when: "the user enters a valid coupon in the Coupon field"
+      - and: 'clicks the "Apply Coupon" button'
+      - then: 'the success message "Success: Your coupon discount has been applied!" should appear'
+      - and: 'the discount field should appear above the "Total" field'
+      - and: "the discount should be subtracted from the Total value"
+
+  - title: Apply Coupon when the coupon is invalid
+    steps:
+      - given: "the user is on the Cart page"
+      - and: "the Cart has items"
+      - when: "the user enters an invalid coupon in the Coupon field"
+      - and: 'clicks the "Apply Coupon" button'
+      - then: >
+          the error message "Error: Coupon is either invalid, expired or reached its usage limit!"
+          should appear
