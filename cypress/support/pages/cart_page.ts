@@ -39,16 +39,16 @@ class CartPage {
 
   visitCart() {
     cy.visit('/index.php?rt=checkout/cart');
-    cy.get('#totals_table').should('exist'); ي
+    cy.get('#totals_table').should('exist'); // تأكد وجود جدول الإجمالي
   }
 
-assertProductsExist() {
-  this.cartRows()
-    .should('have.length.at.least', 1)
-    .then(rows => {
-      cy.log('Number of products in the cart:', rows.length);
-    });
-}
+  assertProductsExist() {
+    this.cartRows()
+      .should('have.length.at.least', 1)
+      .then(rows => {
+        cy.log('عدد منتجات العربة:', rows.length);
+      });
+  }
 
   assertEachProductPrice() {
     this.cartRows().each((_, i) => {
