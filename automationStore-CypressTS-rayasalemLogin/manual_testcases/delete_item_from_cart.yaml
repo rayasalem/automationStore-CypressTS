@@ -1,0 +1,21 @@
+---
+- feature: delete item from the shopping cart
+  scenarios:
+    - title: user deletes a product from the cart
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: delete button is visible for the product
+        - when: user clicks on delete button for the product
+        - then: product is removed from the cart
+        - and: total price of the cart is updated (decreases)
+
+    - title: user deletes all products from the cart one by one
+      steps:
+        - given: user is on the cart page
+        - and: product is in the cart
+        - and: delete button is visible for the product
+        - when: user clicks on delete button for each product in the cart one by one
+        - then: product is removed from the cart
+        - and: the cart is empty after all products are deleted
+        - and: a message "Your cart is empty" is displayed

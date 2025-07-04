@@ -1,0 +1,91 @@
+---
+feature: User Authentication Functionality
+
+scenarios:
+  - title: Successful login
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - when: "the user enters a valid username and valid password"
+      - and: "clicks the login button"
+      - then: "the user should be redirected to the homepage"
+
+  - title: Login with incorrect username
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - when: "the user enters an incorrect username"
+      - and: "enters a valid password"
+      - and: "clicks the login button"
+      - then: >
+          an error message "Error: Incorrect login or password provided."
+          should be displayed
+
+  - title: Login with incorrect password
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - when: "the user enters a valid username"
+      - and: "enters an incorrect password"
+      - and: "clicks the login button"
+      - then: >
+          an error message "Error: Incorrect login or password provided."
+          should be displayed
+
+  - title: Login with empty fields
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - when: "the user leaves the username and password fields empty"
+      - and: "clicks the login button"
+      - then: >
+          an error message "Error: Incorrect login or password provided."
+          should be displayed
+
+  - title: Successful retrieval of login name using valid email
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - and: 'clicks the "Forgot Login Name?" link'
+      - when: "the user enters a valid email address"
+      - and: 'the user clicks the "Continue" button'
+      - then: >
+          the system should send the login name to the user's email
+      - and: >
+          display the message "Success: Your login name has been sent
+          to your e-mail address."
+
+  - title: Successful retrieval of login name using valid last name and email
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - and: 'clicks the "Forgot Login Name?" link'
+      - when: "the user enters a valid last name"
+      - and: "enters a valid email address"
+      - and: 'clicks the "Continue" button'
+      - then: >
+          the message "Success: Your login name has been sent to your e-mail address."
+          should be displayed
+      - and: "the user should receive an email containing the login name"
+
+  - title: Failed retrieval of login name due to incorrect last name or email
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - and: 'clicks the "Forgot Login Name?" link'
+      - when: "the user enters an incorrect last name or email address"
+      - and: 'clicks the "Continue" button'
+      - then: >
+          the error message "Error: No records found matching information you provided,
+          please check your information and try again!" should be displayed
+
+  - title: Password reset attempt with invalid username or email
+    steps:
+      - given: "the user is on the Home Page"
+      - and: "clicks the Login button"
+      - and: 'clicks the "Forgot Your Password?" link'
+      - when: "the user enters an invalid login name or email address"
+      - and: 'clicks the "Continue" button'
+      - then: >
+          the error message "Error: No records found matching information you provided,
+          please check your information and try again!" should be displayed
