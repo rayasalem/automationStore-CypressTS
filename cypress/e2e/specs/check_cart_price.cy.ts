@@ -1,4 +1,4 @@
-import CartPage from "cypress/support/pages/cart_page";
+import CartPage from "../../support/pages/cart-page";
 
 describe("Cart Price Check Test Suite", () => {
   it("user adds first product to cart and checks prices and totals", () => {
